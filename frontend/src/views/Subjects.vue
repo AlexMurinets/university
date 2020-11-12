@@ -18,7 +18,7 @@ import api from "../components/backend-api.js";
         },
         data(){
             return{
-            subjects: [{'id': 1, 'name': 'math', 'description': 'pupa'}, {'id': 2, 'name': 'bd', 'description': 'pupa i lupa'}, {'id': 3, 'name': 'fav', 'description': 'pupa i lupa'}],
+            subjects: [],
             }
         },
 

@@ -15,7 +15,7 @@
 
         <v-img
                 height="150"
-                src="https://p3cdn4static.sharpschool.com/UserFiles/Servers/Server_770743/Image/Technology/Other%20Pictures/math.jpg"
+                :src = "subject.image"
         ></v-img>
 
         <v-card-title>{{subject.name}}</v-card-title>
@@ -29,9 +29,10 @@
         <v-card-actions>
             <v-btn
                     color="warning"
-                    @click="method"
+                    link
+                    @click="$router.push({ path: '/subjectInfo/'+subject.id })"
             >
-                Explore
+                Learn
             </v-btn>
         </v-card-actions>
     </v-card>

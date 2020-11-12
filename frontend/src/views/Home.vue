@@ -2,10 +2,7 @@
   <div class="home">
     <h1>Home
 
-
     </h1>
-<!--    <button @click="sayHello()">Say Hello</button>-->
-<!--    <h2>{{hello}}</h2>-->
   </div>
 </template>
 

@@ -7,6 +7,7 @@ import Grades from "../views/Grades";
 import Subjects from "../views/Subjects";
 import Account from "../views/Account";
 import Subject from "../components/Subject";
+import SubjectInfo from "../views/SubjectInfo";
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,12 @@ const routes = [
     name: 'Subject',
     component: Subject
   },
+  {
+    path: '/subjectInfo/:id',
+    name: 'SubjectInfo',
+    component: SubjectInfo
+  },
+
 
 ]
 

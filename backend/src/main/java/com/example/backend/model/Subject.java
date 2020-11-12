@@ -19,6 +19,8 @@ public class Subject {
 
     private String description;
 
+    private String image;
+
     @OneToMany
     private List<Exam> exams;
 
