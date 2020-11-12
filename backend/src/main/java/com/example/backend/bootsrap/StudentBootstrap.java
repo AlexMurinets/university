@@ -18,7 +18,9 @@ public class StudentBootstrap implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         Student student1 = new Student();
-        student1.setName("Petea Zadnii");
+        student1.setName("Petea");
+        student1.setUsername("Petea");
+        student1.setPassword("password");
         studentRepository.save(student1);
 
         Student student2 = new Student();
