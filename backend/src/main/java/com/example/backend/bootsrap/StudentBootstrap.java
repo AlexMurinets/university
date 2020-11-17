@@ -1,9 +1,10 @@
 package com.example.backend.bootsrap;
 
-import com.example.backend.model.Student;
-import com.example.backend.model.Subject;
+import com.example.backend.model.*;
+import com.example.backend.repository.RoleRepository;
 import com.example.backend.repository.StudentRepository;
 import com.example.backend.repository.SubjectRepository;
+import com.example.backend.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,12 +14,16 @@ import org.springframework.stereotype.Component;
 public class StudentBootstrap implements CommandLineRunner {
     private final StudentRepository studentRepository;
     private final SubjectRepository subjectRepository;
+    private final RoleRepository roleRepository;
+    private final UserRepository userRepository;
 
     @Override
     public void run(String... args) throws Exception {
 
         Student student1 = new Student();
-        student1.setName("Petea Zadnii");
+        student1.setName("Petea");
+        student1.setUsername("Petea");
+        student1.setPassword("password");
         studentRepository.save(student1);
 
         Student student2 = new Student();
@@ -43,6 +48,23 @@ public class StudentBootstrap implements CommandLineRunner {
         python.setImage("https://miro.medium.com/max/670/1*F1oFCwu6_4ork7pWE__IIg.jpeg");
         subjectRepository.save(python);
 
+        Role role1 = new Role();
+        role1.setName(ERole.ROLE_USER);
+        roleRepository.save(role1);
+
+        Role role2 = new Role();
+        role2.setName(ERole.ROLE_MODERATOR);
+        roleRepository.save(role2);
+
+        Role role3 = new Role();
+        role3.setName(ERole.ROLE_ADMIN);
+        roleRepository.save(role3);
+
+        User petea = new User();
+        petea.setEmail("Mama@gmail.com");
+        petea.setPassword("soset");
+        petea.setUsername("petea");
+        userRepository.save(petea);
 
     }
 }
