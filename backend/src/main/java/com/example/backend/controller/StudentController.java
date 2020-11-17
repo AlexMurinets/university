@@ -1,28 +1,25 @@
 package com.example.backend.controller;
 
 import com.example.backend.model.Student;
-import com.example.backend.service.StudentService;
+import com.example.backend.repository.StudentRepository;
 import lombok.AllArgsConstructor;
+import lombok.Setter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-
-@AllArgsConstructor
+@Setter
 @RestController
-@RequestMapping("/students")
+@RequestMapping("/users")
 public class StudentController {
-    private final StudentService studentService;
 
-    @GetMapping("/all")
-    public List<Student> getAll(){
-        return studentService.findAll();
+
+    private StudentRepository applicationUserRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @PostMapping("/record")
+    public void signUp(@RequestBody Student user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        applicationUserRepository.save(user);
     }
 
-    @GetMapping("/hello")
-    public String sayHello(){
-        return "Hello pupa";
-    }
 }

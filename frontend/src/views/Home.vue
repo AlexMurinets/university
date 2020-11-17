@@ -1,36 +1,33 @@
 <template>
-  <div class="home">
-    <h1>Home
-
-    </h1>
+  <div class="container">
+    <header class="jumbotron">
+      <h3>{{content}}</h3>
+    </header>
   </div>
 </template>
 
 <script>
-
-import api from "../components/backend-api.js";
+import UserService from '../services/user.service';
 
 export default {
   name: 'Home',
-
   data() {
     return {
-      hello: [],
-      errors: [],
-    }
+      content: ''
+    };
   },
-
-  methods: {
-    sayHello(){
-      api.hello().then(response => {
-        this.hello = response.data;
-        console.log(response.data)
-      })
-              .catch(error => {
-                this.errors.push(error)
-              })
-    }
+  mounted() {
+    UserService.getPublicContent().then(
+      response => {
+        this.content = response.data;
+      },
+      error => {
+        this.content =
+          (error.response && error.response.data && error.response.data.message) ||
+          error.message ||
+          error.toString();
+      }
+    );
   }
-
-}
+};
 </script>

@@ -10,7 +10,7 @@
             <v-list-item-avatar>
                 <v-img src="https://sun9-22.userapi.com/impg/9Xdgvucpm7WSQHVFbvDDaJMg8IhdaxguJGMMFA/w1-MP30zARo.jpg?size=400x0&quality=90&crop=0,0,2120,2120&sign=919d31c6f8e6ccbd014cccdc0a616c6a&ava=1"></v-img>
             </v-list-item-avatar>
-            <v-list-item-title><h3>Alexei Murinets</h3></v-list-item-title>
+            <v-list-item-title><h3>{{currentUser.username}}</h3></v-list-item-title>
             <v-btn
                     icon
                     @click.stop="mini = !mini"
@@ -41,6 +41,7 @@
 </template>
 
 <script>
+
     export default {
         data () {
             return {
@@ -54,5 +55,10 @@
                 mini: true,
             }
         },
+        computed: {
+        currentUser() {
+            return this.$store.state.auth.user;
+    }
+  },
     }
 </script>

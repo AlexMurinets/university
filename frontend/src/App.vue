@@ -1,32 +1,54 @@
 <template>
-  <div id="app">
-  <v-app>
-    <v-app-bar app>
+<v-app>
+      <v-app-bar app v-if="currentUser">
       <h4>Utm</h4>
       <v-spacer></v-spacer>
-      <v-btn color="primary">Logout</v-btn>
-    </v-app-bar>
-    <NavigationDrawer app/>
+      <v-btn color="primary"
+             @click="logOut"
+      >
+        Logout
+      </v-btn>
+      </v-app-bar>
+        <NavigationDrawer app v-if="currentUser"> </NavigationDrawer>
         <v-content>
           <v-container fluid>
             <router-view/>
           </v-container>
         </v-content>
-  </v-app>
-
-  </div>
+</v-app>
 </template>
 
-
+ 
 <script>
-
-  import NavigationDrawer from "./components/NavigationDrawer";
-  export default {
-    components: {
+import NavigationDrawer from "./components/NavigationDrawer";
+export default {
+  name : 'App',
+  components: {
       NavigationDrawer,
+    },
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    },
+    showAdminBoard() {
+      if (this.currentUser && this.currentUser.roles) {
+        return this.currentUser.roles.includes('ROLE_ADMIN');
+      }
+
+      return false;
+    },
+    showModeratorBoard() {
+      if (this.currentUser && this.currentUser.roles) {
+        return this.currentUser.roles.includes('ROLE_MODERATOR');
+      }
+      return false;
+    }
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/login');
     }
   }
+};
 </script>
-
-
-
