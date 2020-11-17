@@ -1,64 +1,54 @@
 <template>
-  <div id="app">
-  <v-app>
-    <v-app-bar app v-if="isAuthenticated">
+<v-app>
+      <v-app-bar app v-if="currentUser">
       <h4>Utm</h4>
       <v-spacer></v-spacer>
       <v-btn color="primary"
-             :disabled="!isAuthenticated"
-             v-if="isAuthenticated"
-             @click="userSignOut"
+             @click="logOut"
       >
         Logout
       </v-btn>
-    </v-app-bar>
-
-    <NavigationDrawer app v-if="isAuthenticated"> </NavigationDrawer>
+      </v-app-bar>
+        <NavigationDrawer app v-if="currentUser"> </NavigationDrawer>
         <v-content>
           <v-container fluid>
             <router-view/>
           </v-container>
         </v-content>
-  </v-app>
-
-  </div>
+</v-app>
 </template>
 
-
+ 
 <script>
-
-
-  import EventBus from './event-bus';
-  import NavigationDrawer from "./components/NavigationDrawer";
-  export default {
-    name : 'App',
-    components: {
+import NavigationDrawer from "./components/NavigationDrawer";
+export default {
+  name : 'App',
+  components: {
       NavigationDrawer,
     },
-    data() {
-      return {
-        isAuthenticated: false,
-      };
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
     },
-    created() {
-      this.isAuthenticated = localStorage.getItem('auth');
-      // Use localstorage because isAuthenticated from $store is undefined when event is called
-      EventBus.$on('authenticated', () => {
-        this.isAuthenticated = localStorage.getItem('auth');
-      });
+    showAdminBoard() {
+      if (this.currentUser && this.currentUser.roles) {
+        return this.currentUser.roles.includes('ROLE_ADMIN');
+      }
+
+      return false;
     },
-    beforeDestroy() {
-      EventBus.$off('authenticated');
-    },
-    methods: {
-      userSignOut() {
-        this.$store.dispatch('userSignOut');
-      },
-    },
-  };
+    showModeratorBoard() {
+      if (this.currentUser && this.currentUser.roles) {
+        return this.currentUser.roles.includes('ROLE_MODERATOR');
+      }
+      return false;
+    }
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/login');
+    }
+  }
+};
 </script>
-
-
-
-
-
