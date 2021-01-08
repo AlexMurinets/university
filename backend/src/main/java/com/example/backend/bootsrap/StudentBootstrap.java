@@ -1,34 +1,25 @@
 package com.example.backend.bootsrap;
 
 import com.example.backend.model.*;
-import com.example.backend.repository.RoleRepository;
-import com.example.backend.repository.StudentRepository;
-import com.example.backend.repository.SubjectRepository;
-import com.example.backend.repository.UserRepository;
+import com.example.backend.repository.*;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.LinkedList;
+
 @AllArgsConstructor
 @Component
 public class StudentBootstrap implements CommandLineRunner {
-    private final StudentRepository studentRepository;
     private final SubjectRepository subjectRepository;
     private final RoleRepository roleRepository;
     private final UserRepository userRepository;
+    private final TaskRepository taskRepository;
+    private final LessonRepository lessonRepository;
+    private final ExamRepository examRepository;
 
     @Override
     public void run(String... args) throws Exception {
-
-        Student student1 = new Student();
-        student1.setName("Petea");
-        student1.setUsername("Petea");
-        student1.setPassword("password");
-        studentRepository.save(student1);
-
-        Student student2 = new Student();
-        student2.setName("Vasea Perednii");
-        studentRepository.save(student2);
 
         Subject math = new Subject();
         math.setName("Math");
@@ -61,10 +52,60 @@ public class StudentBootstrap implements CommandLineRunner {
         roleRepository.save(role3);
 
         User petea = new User();
-        petea.setEmail("Mama@gmail.com");
-        petea.setPassword("soset");
-        petea.setUsername("petea");
+        petea.setName("Alexei Murinets");
+        petea.setEmail("Leha@gmail.com");
+        petea.setPassword("$2y$12$Ab8eHYjXZspgeYFg.4mQ.OpRr3W.vpLivmROyPbSGeOuHCIzrprJS");
+        petea.setUsername("user");
+        petea.getRoles().add(role1);
         userRepository.save(petea);
 
+        User petea1 = new User();
+        petea1.setName("Marina Messi");
+        petea1.setEmail("Marina@gmail.com");
+        petea1.setPassword("$2y$12$Ab8eHYjXZspgeYFg.4mQ.OpRr3W.vpLivmROyPbSGeOuHCIzrprJS");
+        petea1.setUsername("marina");
+        petea1.getRoles().add(role1);
+        userRepository.save(petea1);
+
+        User professor = new User();
+        professor.setEmail("Johny@gmail.com");
+        professor.setPassword("$2y$12$Ab8eHYjXZspgeYFg.4mQ.OpRr3W.vpLivmROyPbSGeOuHCIzrprJS");
+        professor.setUsername("professor");
+        professor.setName("Johny Cage");
+        professor.getRoles().add(role2);
+        userRepository.save(professor);
+
+        User professor1 = new User();
+        professor1.setEmail("Yourn@gmail.com");
+        professor1.setPassword("$2y$12$Ab8eHYjXZspgeYFg.4mQ.OpRr3W.vpLivmROyPbSGeOuHCIzrprJS");
+        professor1.setUsername("professor1");
+        professor1.setName("Johny Sinus");
+        professor1.getRoles().add(role2);
+        userRepository.save(professor1);
+
+        User admin = new User();
+        admin.setEmail("Mamadmin@gmail.com");
+        admin.setPassword("$2y$12$Ab8eHYjXZspgeYFg.4mQ.OpRr3W.vpLivmROyPbSGeOuHCIzrprJS");
+        admin.setUsername("admin");
+        admin.getRoles().add(role3);
+        userRepository.save(admin);
+
+        Task task1 = new Task();
+        task1.setName("Laba1");
+        task1.setDescription("Pupa and lupa");
+        task1.setSubject(math);
+        taskRepository.save(task1);
+
+        Lesson lesson1 = new Lesson();
+        lesson1.setName("Lesson1");
+        lesson1.setDescription("Very good lesson");
+        lesson1.setSubject(math);
+        lessonRepository.save(lesson1);
+
+        Exam exam1 = new Exam();
+        exam1.setName("Test1");
+        exam1.setDescription("First test");
+        exam1.setSubject(math);
+        examRepository.save(exam1);
     }
 }

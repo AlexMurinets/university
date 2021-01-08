@@ -2,7 +2,7 @@
   <div class="container">
     <header class="jumbotron">
       <h3>
-        <strong>{{currentUser.username}}</strong> Profile
+        <strong>{{currentUser.username}}</strong> 
       </h3>
     </header>
     <p>
@@ -13,12 +13,10 @@
       <strong>Email:</strong>
       {{currentUser.email}}
     </p>
-    <strong>Authorities:</strong>
+    <strong>Role:</strong>
     <ul>
       <li v-for="(role,index) in currentUser.roles" :key="index">{{role}}</li>
     </ul>
-    <v-btn link
-             @click="$router.push({ path: '/user' })">User</v-btn>
   </div>
 </template>
 

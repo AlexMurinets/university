@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>6b710bcf-6f8a-4d01-b50c-e771f63c5d36.SCHEMA:university</OriginalElement>
+  <nodes>
+    <node x="1092.0" y="11.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.subject</node>
+    <node x="1170.0" y="253.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.lesson</node>
+    <node x="0.0" y="33.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.role</node>
+    <node x="40.0" y="285.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.user_roles</node>
+    <node x="619.0" y="264.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.exam_grade</node>
+    <node x="803.0" y="253.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.exam</node>
+    <node x="419.99999999999994" y="242.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.files</node>
+    <node x="747.127976190476" y="507.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.calendar_subjects</node>
+    <node x="986.0" y="264.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.task_grade</node>
+    <node x="1224.502976190476" y="464.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.task</node>
+    <node x="204.0" y="264.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.calendar</node>
+    <node x="493.74999999999994" y="0.0">6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.users</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.exam" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.users">
+      <point x="-40.75000000000006" y="-70.0" />
+      <point x="843.7499999999999" y="192.0" />
+      <point x="630.25" y="192.0" />
+      <point x="45.5" y="81.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.calendar_subjects" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.calendar">
+      <point x="-43.25" y="-38.0" />
+      <point x="790.377976190476" y="444.0" />
+      <point x="302.0" y="444.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.calendar_subjects" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.subject">
+      <point x="43.25" y="-38.0" />
+      <point x="876.877976190476" y="434.0" />
+      <point x="1370.5" y="434.0" />
+      <point x="1370.5" y="212.0" />
+      <point x="1234.5" y="212.0" />
+      <point x="47.50000000000006" y="70.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.task" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.subject">
+      <point x="47.49999999999994" y="-81.0" />
+      <point x="1367.002976190476" y="444.0" />
+      <point x="1476.252976190476" y="444.0" />
+      <point x="1476.252976190476" y="202.0" />
+      <point x="1266.1666666666665" y="202.0" />
+      <point x="79.16666666666669" y="70.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.exam_grade" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.subject">
+      <point x="41.0" y="-59.0" />
+      <point x="742.0" y="202.0" />
+      <point x="1107.8333333333333" y="202.0" />
+      <point x="-79.16666666666669" y="70.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.task" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.task_grade">
+      <point x="-47.5" y="-81.0" />
+      <point x="1272.002976190476" y="424.0" />
+      <point x="1068.0" y="424.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.exam" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.subject">
+      <point x="40.74999999999994" y="-70.0" />
+      <point x="925.2499999999999" y="212.0" />
+      <point x="1139.5" y="212.0" />
+      <point x="-47.5" y="70.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.files" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.users">
+      <point x="0.0" y="-81.0" />
+      <point x="509.49999999999994" y="222.0" />
+      <point x="569.5833333333333" y="222.0" />
+      <point x="-15.166666666666629" y="81.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.calendar" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.users">
+      <point x="0.0" y="-59.0" />
+      <point x="302.0" y="212.0" />
+      <point x="539.25" y="212.0" />
+      <point x="-45.5" y="81.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.user_roles" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.role">
+      <point x="-36.0" y="-38.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.user_roles" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.users">
+      <point x="36.0" y="-38.0" />
+      <point x="148.0" y="202.0" />
+      <point x="508.9166666666666" y="202.0" />
+      <point x="-75.83333333333337" y="81.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.exam_grade" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.users">
+      <point x="-41.0" y="-59.0" />
+      <point x="660.0" y="222.0" />
+      <point x="599.9166666666665" y="222.0" />
+      <point x="15.166666666666629" y="81.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.lesson" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.subject">
+      <point x="0.0" y="-70.0" />
+      <point x="1265.0" y="222.0" />
+      <point x="1202.8333333333333" y="222.0" />
+      <point x="15.833333333333314" y="70.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.task_grade" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.subject">
+      <point x="41.0" y="-59.0" />
+      <point x="1109.0" y="222.0" />
+      <point x="1171.1666666666665" y="222.0" />
+      <point x="-15.833333333333314" y="70.0" />
+    </edge>
+    <edge source="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.task_grade" target="6b710bcf-6f8a-4d01-b50c-e771f63c5d36.TABLE:university.users">
+      <point x="-41.0" y="-59.0" />
+      <point x="1027.0" y="182.0" />
+      <point x="660.5833333333333" y="182.0" />
+      <point x="75.83333333333326" y="81.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5228433683360213" x="888.5429008981071" y="295.3005803923654" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

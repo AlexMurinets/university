@@ -22,10 +22,16 @@ public class Subject {
 
     private String image;
 
-    @OneToMany
+    @OneToMany(mappedBy = "subject")
+    private List<Lesson> lessons;
+
+    @OneToMany(mappedBy = "subject")
     private List<Exam> exams;
 
-    @OneToMany
+    @OneToMany(mappedBy = "subject")
     private List<Task> tasks;
+
+    @OneToOne
+    private User user;
 
 }

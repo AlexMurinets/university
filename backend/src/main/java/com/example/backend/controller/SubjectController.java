@@ -1,6 +1,7 @@
 package com.example.backend.controller;
 
 import com.example.backend.model.Subject;
+import com.example.backend.model.Task;
 import com.example.backend.service.SubjectService;
 import lombok.AllArgsConstructor;
 
@@ -24,8 +25,14 @@ public class SubjectController {
     }
 
     @GetMapping("/{subjectId}")
-    public Optional<Subject> getInfo(@PathVariable Long subjectId)
+    public Optional<Subject> getSubjectInfo(@PathVariable Long subjectId)
     {
         return subjectService.findById(subjectId);
+    }
+
+    @GetMapping("/task/{taskId}")
+    public Optional<Task> getTaskInfo(@PathVariable Long taskId)
+    {
+        return subjectService.findTaskById(taskId);
     }
 }

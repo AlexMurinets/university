@@ -10,6 +10,10 @@ import Subjects from "./views/Subjects";
 import Account from "./views/Account";
 import Subject from "./components/Subject";
 import SubjectInfo from "./views/SubjectInfo";
+import TaskInfo from "./views/TaskInfo";
+import AllFiles from "./views/AllFiles";
+import Professors from "./views/Professors";
+import Students from "./views/Students";
 
 Vue.use(Router);
 
@@ -30,9 +34,23 @@ export const router = new Router({
       component: Register
     },
     {
+      path: '/professors',
+      component: Professors
+    },
+    {
+      path: '/students',
+      component: Students
+    },
+    {
       path: '/grades',
       name: 'Grades',
       component: Grades
+    },
+    
+    {
+      path: '/files',
+      name: 'Files',
+      component: AllFiles
     },
     {
       path: '/calendar',
@@ -58,6 +76,12 @@ export const router = new Router({
       path: '/subjectInfo/:id',
       name: 'SubjectInfo',
       component: SubjectInfo
+    },
+
+    {
+      path: '/TaskInfo/:id',
+      name: 'TaskInfo',
+      component: TaskInfo
     },
   
     {

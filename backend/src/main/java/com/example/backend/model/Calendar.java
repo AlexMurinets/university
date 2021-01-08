@@ -17,8 +17,8 @@ public class Calendar {
 
     private String groupName;
 
-    @OneToMany
-    private List<Student> students;
+    @OneToOne
+    private User user;
 
     @OneToMany
     private List<Subject> subjects;

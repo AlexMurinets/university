@@ -1,5 +1,6 @@
 package com.example.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,8 +17,14 @@ public class Exam {
 
     private String name;
 
-    @ManyToOne
+    private String description;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_subject")
     private Subject subject;
 
+    @OneToOne
+    private User user;
 
 }
